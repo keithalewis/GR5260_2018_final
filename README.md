@@ -7,7 +7,7 @@ A _binary put_ option pays 1(F <= k) at expiration (which we assume is t = 1) wh
 The forward value is v = E 1(F <= k) = P(F <= k) = P(X <= z) where z = (kappa(s) + log k/f)/s.
 
 The jump diffusion model is X = a Z + b (N - lambda) where Z is standard normal and N is 
-Poisson with jump intensity lambda, i.e., P(N = n) = lambda^n/n! exp(-lambda), n = 0, 1, ... 
+Poisson with jump intensity lambda, i.e., P(N = n) = (lambda^n/n!) exp(-lambda), n = 0, 1, ... 
 
 Question 1. Assuming Z and N are independent, what value of b (in terms of a and lambda) will make Var(X) = 1?
 
