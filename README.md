@@ -1,17 +1,17 @@
-# xlltemplate
+# GR5260 2018 final exam
 
-Template for Excel add-ins
+The final exam consists of implementing a model for binary put option using a jump diffusion model,
+adding test routines, documenting the code your wrote, and creating a spreadsheet.
 
-Fork or clone the repository. Set the `Configuration` (Debug or Release) and `Platform` (x86 or x64) and build the `template` project.  The platform must be the same as Excel: x86 for 32-bit or x64 for 64-bit.
+A _binary put_ option pays 1(F <= k) at expiration (which we assume is t = 1) where F = f exp(sX - kappa(s))
+The forward value is v = E 1(F <= k) = P(F <= k) = P(X <= z) where z = (kappa(s) + log k/f)/s.
 
-## Debugging
+The jump diffusion model is X = a Z + b (N - lambda) where Z is standard normal and N is 
+Poisson with jump intensity lambda, i.e., P(N = n) = lambda^n/n! exp(-lambda), n = 0, 1, ... 
 
-Set the configuration to `Debug|x86` if using 32-bit Excel or `Debug|x64` for 64-bit Excel.
-Set breakpoints by clicking on the left boarder at the line you want to stop at, the hit `F5` to start debugging.
+Question 1. Assuming Z and N are independent, what value of b (in terms of a and lambda) will make Var(X) = 1?
 
-## Documentation
+Hint: Recall E(N) = lambda and Var(N) = lambda.
 
-Instantiate a `AddIn xai_anyname(Documentation(LR"(Documentation goes here)"));` object to create a 
-[Sandcastle Help File Builder](https://github.com/EWSoftware/SHFB) project file (`.shfbproj`) in the
-Debug folder of your project. Put the `.chm` file it creates in the same location as the `.xll` add-in to
-integrate with Excel's Insert Function [Help on this function](https://support.office.com/en-us/article/Insert-Function-74474114-7C7F-43F5-BEC3-096C56E2FB13).
+
+

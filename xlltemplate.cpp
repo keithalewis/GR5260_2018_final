@@ -1,45 +1,41 @@
 // xlltemplate.cpp
-#include <cmath>
+#include <random>
 #include "xlltemplate.h"
 
 using namespace xll;
 
 AddIn xai_template(
 	Documentation(LR"(
-This object will generate a Sandcastle Helpfile Builder project file.
+Jump diffusion binary put option.
 )"));
 
-// Information Excel needs to register add-in.
-AddIn xai_function(
-	// Function returning a pointer to an OPER with C name xll_function and Excel name XLL.FUNCTION.
-	// Don't forget prepend a question mark to the C name.
-	//                     v
-    Function(XLL_LPOPER, L"?xll_function", L"XLL.FUNCTION")
-	// First argument is a double called x with an argument description.
-    .Arg(XLL_DOUBLE, L"x", L"is the first double argument.")
-	// Paste function category.
-    .Category(CATEGORY)
-    .FunctionHelp(L"Help on XLL.FUNCTION goes here.")
-	.Documentation(LR"(
-Documentation on XLL.FUNCTION goes here.
-    )")
-);
-// Calling convention *must* be WINAPI (aka __stdcall) for Excel.
-LPOPER WINAPI xll_function(double x)
+// [f() + ... f()]/n
+template<class X>
+inline X mean(const std::function<X()>& f, size_t n)
 {
-// Be sure to export your function.
-#pragma XLLEXPORT
-	static OPER result;
+	X m = 0;
 
-	try {
-		ensure(x >= 0);
-		result = sqrt(x); // OPER's act like Excel cells.
-	}
-	catch (const std::exception& ex) {
-		XLL_ERROR(ex.what());
+	for (size_t i = 1; i <= n; ++i)
+		m += (f() - m) / i;
 
-		result = OPER(xlerr::Num);
-	}
-
-	return &result;
+	return m;
 }
+
+void test_jump_diffusion_cdf()
+{
+	// Use std::normal_distribution and std::poisson_distribution to test jump_diffusion_cdf.
+}
+test xai_test_jump_diffusion_cdf(test_jump_diffusion_cdf);
+
+void test_jump_diffusion_implied()
+{
+	// Test jump_diffusion::implied for the following implied volatilities
+	double s[] = { 0.5, 0.1, 0.2, 0.5 };
+}
+test xai_test_jump_diffusion_implied(test_jump_diffusion_implied);
+
+// Write an add-in called FMS.JUMP_DIFFUSION that returns a handle to a fms::jump_diffusion object
+
+// Write an add-in called FMS.JUMP_DIFFUSION.VALUE that uses the handle above to value a binary put option.
+
+// Create a spreadsheet that values a binary put option with parameters a = .9, lambda = .1, 
