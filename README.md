@@ -3,7 +3,7 @@
 The final exam consists of implementing a model for binary put option using a jump diffusion model,
 adding test routines, documenting the code your wrote, and creating a spreadsheet.
 
-A _binary put_ option pays 1(F <= k) at expiration (which we assume is t = 1) where F = f exp(sX - kappa(s))
+A _binary put_ option pays 1(F &#2264; k) at expiration (which we assume is t = 1) where F = f exp(sX - kappa(s))
 The forward value is v = E 1(F <= k) = P(F <= k) = P(X <= z) where z = (kappa(s) + log k/f)/s.
 
 The jump diffusion model is X = a Z + b (N - lambda) where Z is standard normal and N is 
