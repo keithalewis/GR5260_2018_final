@@ -23,20 +23,20 @@ inline X mean(const std::function<X()>& f, size_t n)
 
 void test_jump_diffusion_cdf()
 {
-	// Use std::normal_distribution and std::poisson_distribution to test jump_diffusion_cdf.
+	//??? Question 6. Use std::normal_distribution and std::poisson_distribution to test jump_diffusion_cdf.
 }
 test xai_test_jump_diffusion_cdf(test_jump_diffusion_cdf);
 
 void test_jump_diffusion_implied()
 {
-	// Test jump_diffusion::implied for the following implied volatilities
+	//??? Question 7. Test jump_diffusion::implied for the following implied volatilities
 	double s[] = { 0.5, 0.1, 0.2, 0.5 };
 }
 test xai_test_jump_diffusion_implied(test_jump_diffusion_implied);
 
-// Write an add-in called FMS.JUMP_DIFFUSION that returns a handle to a fms::jump_diffusion object
+//??? Questing 8. Write an add-in called FMS.JUMP_DIFFUSION that returns a handle to a fms::jump_diffusion object
 
-// Write an add-in called FMS.JUMP_DIFFUSION.VALUE that uses the handle above to value a binary put option.
+//??? Questing 9. Write an add-in called FMS.JUMP_DIFFUSION.VALUE that uses the handle above to value a binary put option.
 
-// Create a spreadsheet that values a binary put option with parameters a = .9, lambda = .1.
+//??? Questing 10. Create a spreadsheet that values a binary put option with parameters a = .9, lambda = .1.
 // Use xllmonte to compare the closed from and Monte Carlo value.
