@@ -13,6 +13,7 @@ Poisson with jump intensity lambda, i.e., P(N = n) = (lambda^n/n!) exp(-lambda),
 
 Hint: Recall E(N) = lambda and Var(N) = lambda.
 
+Solution: Since a^2 + b^2 lambda = 1 we have b = (1 - a^2)/lambda.
 
 ## Hints
 
