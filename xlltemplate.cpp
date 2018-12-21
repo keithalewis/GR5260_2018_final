@@ -38,5 +38,6 @@ test xai_test_jump_diffusion_implied(test_jump_diffusion_implied);
 
 //??? Questing 9. Write an add-in called FMS.JUMP_DIFFUSION.VALUE that uses the handle above to value a binary put option.
 
-//??? Questing 10. Create a spreadsheet that values a binary put option with parameters a = .9, lambda = .1.
-// Use xllmonte to compare the closed from and Monte Carlo value.
+//??? Questing 10. Create a spreadsheet that values a binary put option with parameters a = .9, lambda = .1, f = 100, s = 0.2, and k = 100.
+// Use xllmonte to compare the closed form and Monte Carlo values.
+
